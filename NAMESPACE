@@ -3,3 +3,5 @@
 export(betahat_GD_Cpp)
 export(betahat_GD_R)
 export(betahat_SD_Cpp)
+import(dplyr)
+import(stringr)

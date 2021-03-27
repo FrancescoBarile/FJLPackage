@@ -13,7 +13,7 @@
 NULL
 
 betahat_GD_Cpp <- function(beta, X, Y, tolerance, maxit, stepsize) {
-    .Call(`_cpp_betahat_GD_Cpp`, beta, X, Y, tolerance, maxit, stepsize)
+    .Call('_cpp_betahat_GD_Cpp', PACKAGE = 'cpp', beta, X, Y, tolerance, maxit, stepsize)
 }
 
 #' @title Estimation Linear Regression model via Steepest Descend method
@@ -24,6 +24,6 @@ betahat_GD_Cpp <- function(beta, X, Y, tolerance, maxit, stepsize) {
 #' @param tolerance level
 #' @export
 betahat_SD_Cpp <- function(beta, X, Y, tolerance) {
-    .Call(`_cpp_betahat_SD_Cpp`, beta, X, Y, tolerance)
+    .Call('_cpp_betahat_SD_Cpp', PACKAGE = 'cpp', beta, X, Y, tolerance)
 }
 
