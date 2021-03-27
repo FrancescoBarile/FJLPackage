@@ -79,7 +79,9 @@ usethis::use_test( "hello" )
 
 ## Vignette
 usethis::use_vignette("betahat_GD_R")
+usethis::use_vignette("betahat_GD_Cpp")
 devtools::build_vignettes()
+
 # Install the package and see it with `vignette("ThisTidyPackage")`
 # List your vignettes: vignette(package = 'cancRFDS')
 # Install your package manually: devtools::install(build_vignettes = TRUE)

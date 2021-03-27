@@ -1,0 +1,32 @@
+---
+title: "betahat_GD_Cpp"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{betahat_GD_Cpp}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(cpp)
+X = as.matrix(mydataset$Dep.var)
+Y = as.matrix(mydataset[,-1])
+
+set.seed(1)
+beta0 = rnorm(3)
+
+tolerance=1e-3  # tolerance
+maxit=1000      # max iteration, not to run forever
+stepsize=1e-8 
+
+GD_Cpp = betahat_GD_Cpp(beta0, X, Y, tolerance, maxit, stepsize)
+GD_Cpp
+
+```
