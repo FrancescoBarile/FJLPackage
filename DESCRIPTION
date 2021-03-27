@@ -13,7 +13,8 @@ Imports:
     tictoc,
     dplyr,
     stringr,
-    RcppArmadillo
+    RcppArmadillo,
+    tidyr
 LinkingTo: 
     Rcpp,
     RcppArmadillo
