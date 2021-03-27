@@ -24,7 +24,7 @@ beta0 = rnorm(3)
 
 tolerance=1e-3  # tolerance
 maxit=1000      # max iteration, not to run forever
-stepsize=1e-8 
+stepsize=1e-5 
 
 GD_Cpp = betahat_GD_Cpp(beta0, X, Y, tolerance, maxit, stepsize)
 GD_Cpp

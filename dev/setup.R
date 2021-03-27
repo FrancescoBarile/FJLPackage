@@ -57,8 +57,8 @@ usethis::use_package( "RcppArmadillo" )
 
 ## If you want to use roxygen, enable ROXYGEN in the project.
 # Menu: tools > Project options > build tools > generate the documentation with roxygen
-usethis::use_namespace(roxygen = TRUE)
-devtools::document() # to fill NAMESPACE and documentation with ROXYGEN comments
+#usethis::use_namespace(roxygen = TRUE)
+#devtools::document() # to fill NAMESPACE and documentation with ROXYGEN comments
 # or roxygen2::roxygenise() # converts roxygen comments to .Rd files.
 # or [Ctrl + Shift + D] in RStudio
 
@@ -81,6 +81,7 @@ usethis::use_test( "hello" )
 ## Vignette
 usethis::use_vignette("betahat_GD_R")
 usethis::use_vignette("betahat_GD_Cpp")
+usethis::use_vignette("betahat_SD_Cpp")
 devtools::build_vignettes()
 
 # Install the package and see it with `vignette("ThisTidyPackage")`
