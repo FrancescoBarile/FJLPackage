@@ -11,7 +11,8 @@ Imports:
     Rcpp (>= 1.0.6),
     tibble,
     tictoc,
-    dplyr
+    dplyr,
+    stringr
 LinkingTo: 
     Rcpp,
     RcppArmadillo
