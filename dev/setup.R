@@ -84,6 +84,7 @@ usethis::use_test( "hello" )
 usethis::use_vignette("betahat_GD_R")
 usethis::use_vignette("betahat_GD_Cpp")
 usethis::use_vignette("betahat_SD_Cpp")
+usethis::use_vignette("lm_GD_optimization")
 devtools::build_vignettes()
 
 # Install the package and see it with `vignette("ThisTidyPackage")`
