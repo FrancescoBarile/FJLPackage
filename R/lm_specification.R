@@ -6,6 +6,8 @@
 #' @return
 #' @import dplyr
 #' @import stringr
+#' @import tibble
+#' @import tidyr
 #' 
 lm.model_spec<-function(formula, df){
   formula_char = deparse(formula)

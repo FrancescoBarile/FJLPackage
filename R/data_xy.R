@@ -6,6 +6,7 @@
 #' @return
 #' @import dplyr
 #' @import tidyr
+#' @import tibble
 #' 
 data_xy <- function(formula, df) {
   
