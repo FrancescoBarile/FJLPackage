@@ -69,7 +69,7 @@ devtools::check(document = FALSE) # check the package
 
 ## Add internal datasets
 ## If you want to provide data along with your package
-usethis::use_data_raw( name = "myshape", open = FALSE )
+usethis::use_data_raw( name = "mydataset", open = FALSE )
 usethis::use_data_raw( name = "mydata", open = FALSE )
 usethis::use_data()
 

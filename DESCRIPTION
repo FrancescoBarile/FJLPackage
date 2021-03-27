@@ -8,7 +8,8 @@ Maintainer: Francesco Barile <f.barile2@campus.unimib.it>
 Description: It provides user-friendly functions to estimate a Classical Linear Regression Model
 License: LGPL (>= 3)
 Imports: 
-    Rcpp (>= 1.0.6)
+    Rcpp (>= 1.0.6),
+    tibble
 LinkingTo: 
     Rcpp,
     RcppArmadillo
