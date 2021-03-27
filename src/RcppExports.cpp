@@ -6,55 +6,40 @@
 
 using namespace Rcpp;
 
-// rcpparma_hello_world
-arma::mat rcpparma_hello_world();
-RcppExport SEXP _cpp_rcpparma_hello_world() {
+// betahat_GD_Cpp
+arma::vec betahat_GD_Cpp(arma::vec beta, arma::mat X, arma::vec Y, double tolerance, int maxit, double stepsize);
+RcppExport SEXP _cpp_betahat_GD_Cpp(SEXP betaSEXP, SEXP XSEXP, SEXP YSEXP, SEXP toleranceSEXP, SEXP maxitSEXP, SEXP stepsizeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpparma_hello_world());
+    Rcpp::traits::input_parameter< arma::vec >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
+    Rcpp::traits::input_parameter< int >::type maxit(maxitSEXP);
+    Rcpp::traits::input_parameter< double >::type stepsize(stepsizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(betahat_GD_Cpp(beta, X, Y, tolerance, maxit, stepsize));
     return rcpp_result_gen;
 END_RCPP
 }
-// rcpparma_outerproduct
-arma::mat rcpparma_outerproduct(const arma::colvec& x);
-RcppExport SEXP _cpp_rcpparma_outerproduct(SEXP xSEXP) {
+// betahat_SD_Cpp
+arma::vec betahat_SD_Cpp(arma::vec beta, arma::mat X, arma::vec Y, double tolerance);
+RcppExport SEXP _cpp_betahat_SD_Cpp(SEXP betaSEXP, SEXP XSEXP, SEXP YSEXP, SEXP toleranceSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_outerproduct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_innerproduct
-double rcpparma_innerproduct(const arma::colvec& x);
-RcppExport SEXP _cpp_rcpparma_innerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_innerproduct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_bothproducts
-Rcpp::List rcpparma_bothproducts(const arma::colvec& x);
-RcppExport SEXP _cpp_rcpparma_bothproducts(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_bothproducts(x));
+    Rcpp::traits::input_parameter< arma::vec >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
+    rcpp_result_gen = Rcpp::wrap(betahat_SD_Cpp(beta, X, Y, tolerance));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_cpp_rcpparma_hello_world", (DL_FUNC) &_cpp_rcpparma_hello_world, 0},
-    {"_cpp_rcpparma_outerproduct", (DL_FUNC) &_cpp_rcpparma_outerproduct, 1},
-    {"_cpp_rcpparma_innerproduct", (DL_FUNC) &_cpp_rcpparma_innerproduct, 1},
-    {"_cpp_rcpparma_bothproducts", (DL_FUNC) &_cpp_rcpparma_bothproducts, 1},
+    {"_cpp_betahat_GD_Cpp", (DL_FUNC) &_cpp_betahat_GD_Cpp, 6},
+    {"_cpp_betahat_SD_Cpp", (DL_FUNC) &_cpp_betahat_SD_Cpp, 4},
     {NULL, NULL, 0}
 };
 
