@@ -16,8 +16,8 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
-X = mydataset %>% select(-Dep.var)
-Y = mydataset %>% select(Dep.var)
+X = as.matrix(mydataset$Dep.var)
+Y = as.matrix(mydataset[,-1])
 
 set.seed(1)
 beta0 = rnorm(3)
@@ -26,9 +26,8 @@ tolerance=1e-3  # tolerance
 maxit=1000      # max iteration, not to run forever
 stepsize=1e-8 
 
-tic()
 GD_R = betahat_GD_R(beta0, X, Y, tolerance, maxit, stepsize)
-toc()
+
 GD_R
 
 ```
