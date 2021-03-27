@@ -1,8 +1,8 @@
 ---
-title: "betahat_GD_R"
+title: "betahat_SD_Cpp"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{betahat_GD_R}
+  %\VignetteIndexEntry{betahat_SD_Cpp}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
+library(cpp)
 Y = as.matrix(mydataset$Dep.var)
 X = as.matrix(mydataset[,-1], by.row= False)
 
@@ -23,11 +24,9 @@ set.seed(1)
 beta0 = rnorm(3)
 
 tolerance=1e-3  # tolerance
-maxit=1000      # max iteration, not to run forever
-stepsize=1e-5 
 
-GD_R = betahat_GD_R(beta0, X, Y, tolerance, maxit, stepsize)
+SD_Cpp = betahat_SD_Cpp(beta0, X, Y, tolerance)
+SD_Cpp
 
-GD_R
 
 ```

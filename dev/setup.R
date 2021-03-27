@@ -50,6 +50,7 @@ usethis::use_package( "dplyr" )
 usethis::use_package( "stringr" )
 usethis::use_package( "tibble" )
 usethis::use_package( "tictoc" )
+usethis::use_package( "RcppArmadillo" )
 # remeber to add it to ROXYGEN or NAMESPACE:
 #' @import dplyr  # ROXYGEN
 #' import(dplyr)  # NAMESPACE

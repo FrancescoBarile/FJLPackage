@@ -16,8 +16,8 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
-X = as.matrix(mydataset$Dep.var)
-Y = as.matrix(mydataset[,-1])
+Y = as.matrix(mydataset$Dep.var)
+X = as.matrix(mydataset[,-1], by.row= False)
 
 set.seed(1)
 beta0 = rnorm(3)
