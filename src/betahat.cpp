@@ -1,6 +1,7 @@
 #include "RcppArmadillo.h"
 
 using namespace Rcpp;
+using namespace arma;
 
 //' @title Estimation Linear Regression model via Gradient Descend method
 //' @name betahat_GD_Cpp
@@ -36,6 +37,7 @@ arma::vec betahat_GD_Cpp(arma::vec beta, arma::mat X, arma::vec Y,
 //' @param Y response variable vector
 //' @param tolerance level
 //' @export
+//' 
 // [[Rcpp::export]]
 
 arma::vec betahat_SD_Cpp(arma::vec beta, arma::mat X, arma::vec Y, double tolerance) {

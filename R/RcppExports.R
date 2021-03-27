@@ -23,6 +23,7 @@ betahat_GD_Cpp <- function(beta, X, Y, tolerance, maxit, stepsize) {
 #' @param Y response variable vector
 #' @param tolerance level
 #' @export
+#' 
 betahat_SD_Cpp <- function(beta, X, Y, tolerance) {
     .Call(`_cpp_betahat_SD_Cpp`, beta, X, Y, tolerance)
 }
