@@ -4,12 +4,12 @@
 
 # Use version control
 #install.packages("usethis")
-usethis::use_git_config(
-  scope = "project",
-  user.name = "Francesco Barile",
-  user.email = "f.barile2@campus.unimib.it"
-)
-usethis::use_git()
+# usethis::use_git_config(
+#   scope = "project",
+#   user.name = "Francesco Barile",
+#   user.email = "f.barile2@campus.unimib.it"
+# )
+# usethis::use_git()
 
 # avoid problem with the dev scripts: dev/package-utility.R (this file)
 dir.create("dev")
@@ -46,8 +46,8 @@ usethis::use_readme_md( open = FALSE )
 
 
 ## Add a package
-usethis::use_package( "dplyr" )
-usethis::use_package( "stringr" )
+# usethis::use_package( "dplyr" )
+# usethis::use_package( "stringr" )
 usethis::use_package( "tibble" )
 usethis::use_package( "tictoc" )
 # remeber to add it to ROXYGEN or NAMESPACE:
@@ -70,15 +70,15 @@ devtools::check(document = FALSE) # check the package
 ## Add internal datasets
 ## If you want to provide data along with your package
 usethis::use_data_raw( name = "mydataset", open = FALSE )
-usethis::use_data_raw( name = "mydata", open = FALSE )
-usethis::use_data()
+# usethis::use_data_raw( name = "mydata", open = FALSE )
+# usethis::use_data()
 
 ## Tests
 ## Add one line by test you want to create
 usethis::use_test( "hello" )
 
 ## Vignette
-usethis::use_vignette("OurPackage")
+usethis::use_vignette("betahat_GD_R")
 devtools::build_vignettes()
 # Install the package and see it with `vignette("ThisTidyPackage")`
 # List your vignettes: vignette(package = 'cancRFDS')
