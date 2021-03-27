@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(cpp)
 X = mydataset %>% select(-Dep.var)
-Y = mydataset %>% select(-Dep.var)
+Y = mydataset %>% select(Dep.var)
 
 set.seed(1)
 beta0 = rnorm(3)

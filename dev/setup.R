@@ -46,7 +46,7 @@ usethis::use_readme_md( open = FALSE )
 
 
 ## Add a package
-# usethis::use_package( "dplyr" )
+usethis::use_package( "dplyr" )
 # usethis::use_package( "stringr" )
 usethis::use_package( "tibble" )
 usethis::use_package( "tictoc" )

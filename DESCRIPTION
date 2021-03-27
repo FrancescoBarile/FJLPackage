@@ -10,7 +10,8 @@ License: LGPL (>= 3)
 Imports: 
     Rcpp (>= 1.0.6),
     tibble,
-    tictoc
+    tictoc,
+    dplyr
 LinkingTo: 
     Rcpp,
     RcppArmadillo
