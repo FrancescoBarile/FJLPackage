@@ -1,8 +1,8 @@
 ---
-title: "betahat_SD_Cpp"
+title: "StepeestDescend_Cpp"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{betahat_SD_Cpp}
+  %\VignetteIndexEntry{StepeestDescend_Cpp}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

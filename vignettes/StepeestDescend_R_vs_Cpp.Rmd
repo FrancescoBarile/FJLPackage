@@ -39,7 +39,7 @@ nsim = 1000
 beta0 = c(5,0.5, 0.2, 0.1)
 beta_hat=matrix(NA, nrow=length(beta0), ncol=nsim)
 tolerance=1e-3  # tolerance
-maxit=1000      # max iteration, not to run forever
+maxit = 1000      # max iteration, not to run forever
 consistency_r=matrix(NA, nrow=length(beta0), ncol=length(n), 
                    dimnames = list(1:length(beta0), paste("n=", n, sep = "")))
 consistency_cpp=matrix(NA, nrow=length(beta0), ncol=length(n), 
@@ -78,4 +78,3 @@ bench::mark(
 
 consistency_r
 consistency_cpp
-```

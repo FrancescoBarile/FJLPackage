@@ -38,6 +38,7 @@ arma::vec betahat_GD_Cpp(arma::vec beta, arma::mat X, arma::vec Y,
 //' @param X design matrix
 //' @param Y response variable vector
 //' @param tolerance level
+//' @param maxit max num of iter
 //' @export
 //' 
 // [[Rcpp::export]]

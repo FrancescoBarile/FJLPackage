@@ -24,6 +24,7 @@ betahat_GD_Cpp <- function(beta, X, Y, tolerance, maxit, stepsize) {
 #' @param X design matrix
 #' @param Y response variable vector
 #' @param tolerance level
+#' @param maxit max num of iter
 #' @export
 #' 
 betahat_SD_Cpp <- function(beta, X, Y, tolerance, maxit) {

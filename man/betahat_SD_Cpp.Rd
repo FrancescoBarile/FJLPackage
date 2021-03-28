@@ -14,6 +14,8 @@ betahat_SD_Cpp(beta, X, Y, tolerance, maxit)
 \item{Y}{response variable vector}
 
 \item{tolerance}{level}
+
+\item{maxit}{max num of iter}
 }
 \description{
 Estimation Linear Regression model via Steepest Descend method

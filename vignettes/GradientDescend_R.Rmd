@@ -1,8 +1,8 @@
 ---
-title: "betahat_GD_Cpp"
+title: "GradientDescend_R"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{betahat_GD_Cpp}
+  %\VignetteIndexEntry{GradientDescend_R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -27,6 +27,7 @@ tolerance=1e-3  # tolerance
 maxit=1000      # max iteration, not to run forever
 stepsize=1e-5 
 
-GD_Cpp = betahat_GD_Cpp(beta0, X, Y, tolerance, maxit, stepsize)
-GD_Cpp
+GD_R = betahat_GD_R(beta0, X, Y, tolerance, maxit, stepsize)
+
+GD_R
 ```

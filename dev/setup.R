@@ -58,8 +58,8 @@ usethis::use_package( "tidyr")
 
 ## If you want to use roxygen, enable ROXYGEN in the project.
 # Menu: tools > Project options > build tools > generate the documentation with roxygen
-#usethis::use_namespace(roxygen = TRUE)
-#devtools::document() # to fill NAMESPACE and documentation with ROXYGEN comments
+usethis::use_namespace(roxygen = TRUE)
+devtools::document() # to fill NAMESPACE and documentation with ROXYGEN comments
 # or roxygen2::roxygenise() # converts roxygen comments to .Rd files.
 # or [Ctrl + Shift + D] in RStudio
 
@@ -89,10 +89,10 @@ usethis::use_test( "betahat_SD_Cpp" )
 
 
 ## Vignette
-usethis::use_vignette("betahat_GD_R")
-usethis::use_vignette("betahat_GD_Cpp")
-usethis::use_vignette("betahat_SD_Cpp")
-usethis::use_vignette("lm_GD_optimization")
+usethis::use_vignette("GradientDescend_R")
+usethis::use_vignette("GradientDescend_Cpp")
+usethis::use_vignette("StepeestDescend_Cpp")
+usethis::use_vignette("GD_general_function")
 usethis::use_vignette("StepeestDescend_R_vs_Cpp")
 
 devtools::build_vignettes()

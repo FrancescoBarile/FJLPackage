@@ -1,8 +1,8 @@
 ---
-title: "lm_GD_optimization"
+title: "GD_general_function"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{lm_GD_optimization}
+  %\VignetteIndexEntry{GD_general_function}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -25,7 +25,7 @@ lm_opt_GD_mtcars = lm_GD_optimizer(mpg ~ hp + wt, mtcars, tolerance=1e-3,
 lm_opt_GD_mtcars 
 
 lm_opt_GD_mtcars = lm_GD_optimizer(mpg ~ hp + wt, mtcars, tolerance=1e-3,
-                                   maxit=1000, stepsize=1e-8, verbose=T)
+                                   maxit=1000, stepsize=1e-6, verbose=T)
 lm_opt_GD_mtcars 
 
 ```
