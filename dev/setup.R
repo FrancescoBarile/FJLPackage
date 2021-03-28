@@ -105,6 +105,6 @@ devtools::build_vignettes()
 
 # devtools::missing_s3()
 #
-# devtools::check()
+devtools::check()
 # rhub::check_for_cran()
 
