@@ -8,7 +8,7 @@
 #' @return
 #' @export
 
-lm_SD_optimizer<-function(formula, df, tolerance, verbose) {
+lm_SD_optimizer<-function(formula, df, tolerance, maxit, verbose) {
  
   data=data_xy(formula, df)
   y=as.matrix(data$Y)
@@ -19,7 +19,7 @@ lm_SD_optimizer<-function(formula, df, tolerance, verbose) {
   err=1
   t = 1
   if(verbose){
-    while( (err>tolerance) ){
+    while( ( (err>tolerance) & (t<=maxit) ) ){
       beta_old = beta
       gr = 2*t(x)%*%(x%*%beta-y)
       hess = 2*t(x)%*%x
@@ -31,7 +31,7 @@ lm_SD_optimizer<-function(formula, df, tolerance, verbose) {
     }
   }
   else{
-    while( (err>tolerance) ){
+    while( ( (err>tolerance) & (t<=maxit) ) ){
       beta_old = beta
       gr = 2*t(x)%*%(x%*%beta-y)
       hess = 2*t(x)%*%x

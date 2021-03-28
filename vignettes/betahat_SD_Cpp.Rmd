@@ -24,7 +24,8 @@ set.seed(1)
 beta0 = rnorm(ncol(X))
 
 tolerance=1e-3  # tolerance
+maxit=1000      # max iteration, not to run forever
 
-SD_Cpp = betahat_SD_Cpp(beta0, X, Y, tolerance)
+SD_Cpp = betahat_SD_Cpp(beta0, X, Y, tolerance, maxit)
 SD_Cpp
 ```

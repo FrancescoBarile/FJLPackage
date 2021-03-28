@@ -39,6 +39,7 @@ nsim = 1000
 beta0 = c(5,0.5, 0.2, 0.1)
 beta_hat=matrix(NA, nrow=length(beta0), ncol=nsim)
 tolerance=1e-3  # tolerance
+maxit=1000      # max iteration, not to run forever
 consistency_r=matrix(NA, nrow=length(beta0), ncol=length(n), 
                    dimnames = list(1:length(beta0), paste("n=", n, sep = "")))
 consistency_cpp=matrix(NA, nrow=length(beta0), ncol=length(n), 
@@ -53,7 +54,7 @@ bench::mark(
         x1 = rnorm(n[i]); x2 = rnorm(n[i]); x3 = rnorm(n[i])
         x = cbind(rep(1,n[i]), x1, x2, x3)
         y = as.numeric( x%*%beta0 + rnorm(n[i]) )
-        beta_hat[,j] = betahat_SD_R(beta, x, y, tolerance)
+        beta_hat[,j] = betahat_SD_R(beta, x, y, tolerance, maxit)
       }
       consistency_r[,i] = rowMeans(beta_hat)
     }
@@ -67,7 +68,7 @@ bench::mark(
         x1 = rnorm(n[i]); x2 = rnorm(n[i]); x3 = rnorm(n[i])
         x = cbind(rep(1,n[i]), x1, x2, x3)
         y = as.numeric( x%*%beta0 + rnorm(n[i]) )
-        beta_hat[,j] = betahat_SD_Cpp(beta, x, y, tolerance)
+        beta_hat[,j] = betahat_SD_Cpp(beta, x, y, tolerance, maxit)
       }
       consistency_cpp[,i] = rowMeans(beta_hat)
     }

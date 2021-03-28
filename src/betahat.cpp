@@ -42,12 +42,14 @@ arma::vec betahat_GD_Cpp(arma::vec beta, arma::mat X, arma::vec Y,
 //' 
 // [[Rcpp::export]]
 
-arma::vec betahat_SD_Cpp(arma::vec beta, arma::mat X, arma::vec Y, double tolerance) {
+arma::vec betahat_SD_Cpp(arma::vec beta, arma::mat X, arma::vec Y, 
+                         double tolerance, int maxit,) {
   
-  arma::mat H = 2*X.t()*X; 
+  arma::mat H = 2*X.t()*X;
+  int t = 1;
   double error = 1;
   
-  while( error>tolerance ){
+  while( (error>tolerance) & (t<=maxit) ){
     arma::vec gr =  -2*X.t()*Y + 2*X.t()*X*beta;
     arma::vec beta_old = beta;
     double numerator = norm(gr, 2);
@@ -55,6 +57,7 @@ arma::vec betahat_SD_Cpp(arma::vec beta, arma::mat X, arma::vec Y, double tolera
     double step = pow(numerator, 2.0)/denominator;
     beta = beta - step*gr; 
     error = max(abs(beta-beta_old));
+    t = t + 1;
   }
   return beta;
 }
