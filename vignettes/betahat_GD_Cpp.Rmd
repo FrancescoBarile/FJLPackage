@@ -16,11 +16,13 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
-Y = as.matrix(mydataset$Dep.var)
-X = as.matrix(mydataset[,-1], by.row= False)
+library(tibble)
+XY=data_xy(Dep.var ~ . -1, mydataset_noconst)
+Y = as.matrix(XY$Y)
+X = as.matrix(XY$X)
 
 set.seed(1)
-beta0 = rnorm(3)
+beta0 = rnorm(ncol(X))
 
 tolerance=1e-3  # tolerance
 maxit=1000      # max iteration, not to run forever
@@ -28,5 +30,4 @@ stepsize=1e-5
 
 GD_Cpp = betahat_GD_Cpp(beta0, X, Y, tolerance, maxit, stepsize)
 GD_Cpp
-
 ```

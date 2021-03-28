@@ -16,16 +16,16 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
-Y = as.matrix(mydataset$Dep.var)
-X = as.matrix(mydataset[,-1], by.row=FALSE)
+library(tibble)
+XY=data_xy(Dep.var ~ . -1, mydataset_noconst)
+Y = as.matrix(XY$Y)
+X = as.matrix(XY$X)
 
 set.seed(1)
-beta0 = rnorm(3)
+beta0 = rnorm(ncol(X))
 
 tolerance=1e-3  # tolerance
 
 SD_Cpp = betahat_SD_Cpp(beta0, X, Y, tolerance)
 SD_Cpp
-
-
 ```
