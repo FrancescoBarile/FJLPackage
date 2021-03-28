@@ -3,6 +3,7 @@
 #' @param formula a formula specifying the model
 #' @param df dataset containing the variables of interest
 #' @param tolerance tolerance level
+#' @param maxit maximun number of iteration
 #' @param verbose should the function write messages during the computation?
 #'
 #' @return

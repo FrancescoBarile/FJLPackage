@@ -26,7 +26,7 @@ betahat_GD_Cpp <- function(beta, X, Y, tolerance, maxit, stepsize) {
 #' @param tolerance level
 #' @export
 #' 
-betahat_SD_Cpp <- function(beta, X, Y, tolerance) {
-    .Call(`_cpp_betahat_SD_Cpp`, beta, X, Y, tolerance)
+betahat_SD_Cpp <- function(beta, X, Y, tolerance, maxit) {
+    .Call(`_cpp_betahat_SD_Cpp`, beta, X, Y, tolerance, maxit)
 }
 

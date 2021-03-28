@@ -23,8 +23,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // betahat_SD_Cpp
-arma::vec betahat_SD_Cpp(arma::vec beta, arma::mat X, arma::vec Y, double tolerance);
-RcppExport SEXP _cpp_betahat_SD_Cpp(SEXP betaSEXP, SEXP XSEXP, SEXP YSEXP, SEXP toleranceSEXP) {
+arma::vec betahat_SD_Cpp(arma::vec beta, arma::mat X, arma::vec Y, double tolerance, int maxit);
+RcppExport SEXP _cpp_betahat_SD_Cpp(SEXP betaSEXP, SEXP XSEXP, SEXP YSEXP, SEXP toleranceSEXP, SEXP maxitSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -32,14 +32,15 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type Y(YSEXP);
     Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
-    rcpp_result_gen = Rcpp::wrap(betahat_SD_Cpp(beta, X, Y, tolerance));
+    Rcpp::traits::input_parameter< int >::type maxit(maxitSEXP);
+    rcpp_result_gen = Rcpp::wrap(betahat_SD_Cpp(beta, X, Y, tolerance, maxit));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_cpp_betahat_GD_Cpp", (DL_FUNC) &_cpp_betahat_GD_Cpp, 6},
-    {"_cpp_betahat_SD_Cpp", (DL_FUNC) &_cpp_betahat_SD_Cpp, 4},
+    {"_cpp_betahat_SD_Cpp", (DL_FUNC) &_cpp_betahat_SD_Cpp, 5},
     {NULL, NULL, 0}
 };
 

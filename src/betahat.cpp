@@ -43,7 +43,7 @@ arma::vec betahat_GD_Cpp(arma::vec beta, arma::mat X, arma::vec Y,
 // [[Rcpp::export]]
 
 arma::vec betahat_SD_Cpp(arma::vec beta, arma::mat X, arma::vec Y, 
-                         double tolerance, int maxit,) {
+                         double tolerance, int maxit) {
   
   arma::mat H = 2*X.t()*X;
   int t = 1;

@@ -3,7 +3,8 @@
 #' @param beta numeric vector containing an initial guess for the beta vector
 #' @param x design matrix
 #' @param y response variable vector
-#' @param tolerance tolerance level 
+#' @param tolerance tolerance level
+#' @param maxit maximun number of iteration 
 #'
 #' @return
 #' @export

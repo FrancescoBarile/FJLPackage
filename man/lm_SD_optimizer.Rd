@@ -4,7 +4,7 @@
 \alias{lm_SD_optimizer}
 \title{Title}
 \usage{
-lm_SD_optimizer(formula, df, tolerance, verbose)
+lm_SD_optimizer(formula, df, tolerance, maxit, verbose)
 }
 \arguments{
 \item{formula}{a formula specifying the model}
@@ -12,6 +12,8 @@ lm_SD_optimizer(formula, df, tolerance, verbose)
 \item{df}{dataset containing the variables of interest}
 
 \item{tolerance}{tolerance level}
+
+\item{maxit}{maximun number of iteration}
 
 \item{verbose}{should the function write messages during the computation?}
 }

@@ -4,7 +4,7 @@
 \alias{betahat_SD_R}
 \title{Title}
 \usage{
-betahat_SD_R(beta, x, y, tolerance)
+betahat_SD_R(beta, x, y, tolerance, maxit)
 }
 \arguments{
 \item{beta}{numeric vector containing an initial guess for the beta vector}
@@ -14,6 +14,8 @@ betahat_SD_R(beta, x, y, tolerance)
 \item{y}{response variable vector}
 
 \item{tolerance}{tolerance level}
+
+\item{maxit}{maximun number of iteration}
 }
 \value{
 

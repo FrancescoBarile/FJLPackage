@@ -4,7 +4,7 @@
 \alias{betahat_SD_Cpp}
 \title{betahat_SD_Cpp}
 \usage{
-betahat_SD_Cpp(beta, X, Y, tolerance)
+betahat_SD_Cpp(beta, X, Y, tolerance, maxit)
 }
 \arguments{
 \item{beta}{initial guess beta vector}
