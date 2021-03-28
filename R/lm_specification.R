@@ -16,9 +16,9 @@ lm.model_spec<-function(formula, df){
   
   formula_nospace = str_replace_all(formula_char, " ", "")
   formula_reg = str_sub(formula_nospace, str_locate(formula_nospace, "~")[1]+1)
-  all_x = formula_reg=="." |
+  all_x = formula_reg=="." | (str_detect(formula_char, "\\.") &
     str_sub(formula_reg, str_locate(formula_reg, "\\.")[1]+1, 
-            str_locate(formula_reg, "\\.")[1]+1)=="-"
+            str_locate(formula_reg, "\\.")[1]+1)=="-")
   
   if(all_x){
     x_names = setdiff(names(df), y_name)
