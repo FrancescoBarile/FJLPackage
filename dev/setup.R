@@ -93,6 +93,8 @@ usethis::use_vignette("betahat_GD_R")
 usethis::use_vignette("betahat_GD_Cpp")
 usethis::use_vignette("betahat_SD_Cpp")
 usethis::use_vignette("lm_GD_optimization")
+usethis::use_vignette("StepeestDescend_R_vs_Cpp")
+
 devtools::build_vignettes()
 
 # Install the package and see it with `vignette("ThisTidyPackage")`

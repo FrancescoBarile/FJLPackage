@@ -1,0 +1,80 @@
+---
+title: "StepeestDescend_R_vs_Cpp"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{StepeestDescend_R_vs_Cpp}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width=4, 
+  fig.height=2,
+  fig.align = "center"
+)
+```
+
+```{r setup}
+library(cpp)
+library(dplyr)
+library(ggplot2)
+# printable bench (for RMarkdown)
+print_bench <- function(bm) {
+  bm %>% 
+    mutate(expression = as.character(expression))
+}
+show_bm <- function(bm) {
+  print(print_bench(bm))
+  autoplot(bm)
+}
+
+#The aim of this Monte Carlo experiment is to show that the estimate of a Classical Linear Regression model (i.e. when all the classical assumptions of the linear regression model are satisfied) is consistent.
+#To run the experiment we benchmark the Steepest descent R function with its Cpp version.
+
+n = c(10, 25, 50, 100, 500, 1000)
+nsim = 1000
+beta0 = c(5,0.5, 0.2, 0.1)
+beta_hat=matrix(NA, nrow=length(beta0), ncol=nsim)
+tolerance=1e-3  # tolerance
+consistency_r=matrix(NA, nrow=length(beta0), ncol=length(n), 
+                   dimnames = list(1:length(beta0), paste("n=", n, sep = "")))
+consistency_cpp=matrix(NA, nrow=length(beta0), ncol=length(n), 
+                   dimnames = list(1:length(beta0), paste("n=", n, sep = "")))
+
+bench::mark(
+  SD_r_fun = {
+    set.seed(1)
+    beta = rnorm(length(beta0))
+    for(i in 1:length(n)){
+      for(j in 1:nsim){
+        x1 = rnorm(n[i]); x2 = rnorm(n[i]); x3 = rnorm(n[i])
+        x = cbind(rep(1,n[i]), x1, x2, x3)
+        y = as.numeric( x%*%beta0 + rnorm(n[i]) )
+        beta_hat[,j] = betahat_SD_R(beta, x, y, tolerance)
+      }
+      consistency_r[,i] = rowMeans(beta_hat)
+    }
+    consistency_r
+  },
+  SD_cpp_fun = {
+    set.seed(1)
+    beta = rnorm(length(beta0))
+    for(i in 1:length(n)){
+      for(j in 1:nsim){
+        x1 = rnorm(n[i]); x2 = rnorm(n[i]); x3 = rnorm(n[i])
+        x = cbind(rep(1,n[i]), x1, x2, x3)
+        y = as.numeric( x%*%beta0 + rnorm(n[i]) )
+        beta_hat[,j] = betahat_SD_Cpp(beta, x, y, tolerance)
+      }
+      consistency_cpp[,i] = rowMeans(beta_hat)
+    }
+    consistency_cpp
+  }
+) %>% show_bm()
+
+consistency_r
+consistency_cpp
+```
