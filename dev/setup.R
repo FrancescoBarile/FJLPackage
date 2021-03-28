@@ -78,7 +78,15 @@ usethis::use_data_raw( name = "mydataset_noconst", open = FALSE )
 
 ## Tests
 ## Add one line by test you want to create
-usethis::use_test( "hello" )
+usethis::use_test( "data_xy" )
+usethis::use_test( "lm_specification" )
+usethis::use_test( "GradientDescend_R" )
+usethis::use_test( "SteepestDescend_R" )
+usethis::use_test( "lm_GD_optimizer" )
+usethis::use_test( "lm_SD_optimizer" )
+usethis::use_test( "betahat_GD_Cpp" )
+usethis::use_test( "betahat_SD_Cpp" )
+
 
 ## Vignette
 usethis::use_vignette("betahat_GD_R")
