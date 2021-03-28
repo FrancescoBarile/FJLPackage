@@ -31,7 +31,9 @@ show_bm <- function(bm) {
   autoplot(bm)
 }
 
-#The aim of this Monte Carlo experiment is to show that the estimate of a Classical Linear Regression model (i.e. when all the classical assumptions of the linear regression model are satisfied) is consistent.
+#The aim of this Monte Carlo experiment is to show that the estimate of a
+#Classical Linear Regression model (i.e. when all the classical assumptions of
+#the linear regression model are satisfied) is consistent.
 #To run the experiment we benchmark the Steepest descent R function with its Cpp version.
 
 n = c(10, 25, 50, 100, 500, 1000)
