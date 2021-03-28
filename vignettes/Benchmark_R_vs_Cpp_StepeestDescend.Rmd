@@ -1,8 +1,8 @@
 ---
-title: "StepeestDescend_R_vs_Cpp"
+title: "Benchmark_R_vs_Cpp_StepeestDescend"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{StepeestDescend_R_vs_Cpp}
+  %\VignetteIndexEntry{Benchmark_R_vs_Cpp_StepeestDescend}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -78,3 +78,4 @@ bench::mark(
 
 consistency_r
 consistency_cpp
+```
