@@ -39,7 +39,7 @@ lm.model_spec<-function(formula, df){
   }
   
   var_names=
-    as_tibble(rownames_to_column(data.frame(var_name=c(y_name=y_name, x_names=x_names)), var = 'rowname')) %>%
+    as_tibble(tibble::rownames_to_column(data.frame(var_name=c(y_name=y_name, x_names=x_names)), var = 'rowname')) %>%
     mutate(type=case_when( str_detect(rowname, "y") ~ "Dependent",
                            TRUE ~ paste("Regressor", row_number()-1 ) )) %>%
     select(type, var_name)

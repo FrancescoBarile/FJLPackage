@@ -16,7 +16,6 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
-library(tibble)
 XY=data_xy(Dep.var ~ . -1, mydataset_noconst)
 Y = as.matrix(XY$Y)
 X = as.matrix(XY$X)

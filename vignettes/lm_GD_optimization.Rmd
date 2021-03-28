@@ -16,7 +16,6 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
-library(tibble)
 lm_opt_GD = lm_GD_optimizer(Dep.var ~ . -1, mydataset_noconst, tolerance=1e-3, maxit=1000, stepsize=1e-5, verbose=T)
 lm_opt_GD
 ```
