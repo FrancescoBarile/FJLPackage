@@ -16,10 +16,16 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
-lm_opt_GD = lm_GD_optimizer(Dep.var ~ . -1, mydataset_noconst, tolerance=1e-3, maxit=1000, stepsize=1e-5, verbose=T)
+lm_opt_GD = lm_GD_optimizer(Dep.var ~ . -1, mydataset_noconst, tolerance=1e-3, 
+                            maxit=1000, stepsize=1e-5, verbose=T)
 lm_opt_GD
 
-lm_opt_GD_mtcars = lm_GD_optimizer(mpg ~ hp + wt -1, mtcars, tolerance=1e-3, maxit=1000, stepsize=1e-5, verbose=T)
+lm_opt_GD_mtcars = lm_GD_optimizer(mpg ~ hp + wt, mtcars, tolerance=1e-3, 
+                                   maxit=1000, stepsize=1e-2, verbose=T)
+lm_opt_GD_mtcars 
+
+lm_opt_GD_mtcars = lm_GD_optimizer(mpg ~ hp + wt, mtcars, tolerance=1e-3,
+                                   maxit=1000, stepsize=1e-8, verbose=T)
 lm_opt_GD_mtcars 
 
 ```
