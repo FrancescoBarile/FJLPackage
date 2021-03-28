@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{betahat_SD_Cpp}
 \alias{betahat_SD_Cpp}
-\title{Estimation Linear Regression model via Steepest Descend method}
+\title{betahat_SD_Cpp}
 \usage{
 betahat_SD_Cpp(beta, X, Y, tolerance)
 }

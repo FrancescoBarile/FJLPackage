@@ -3,7 +3,8 @@
 using namespace Rcpp;
 using namespace arma;
 
-//' @title Estimation Linear Regression model via Gradient Descend method
+//' Estimation Linear Regression model via Gradient Descend method
+//' @title betahat_GD_Cpp
 //' @name betahat_GD_Cpp
 //' @param beta initial guess beta vector
 //' @param X design matrix
@@ -30,7 +31,8 @@ arma::vec betahat_GD_Cpp(arma::vec beta, arma::mat X, arma::vec Y,
   return beta;
 }
 
-//' @title Estimation Linear Regression model via Steepest Descend method
+//' Estimation Linear Regression model via Steepest Descend method
+//' @title betahat_SD_Cpp
 //' @name betahat_SD_Cpp
 //' @param beta initial guess beta vector
 //' @param X design matrix

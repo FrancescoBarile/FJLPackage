@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{betahat_GD_Cpp}
 \alias{betahat_GD_Cpp}
-\title{Estimation Linear Regression model via Gradient Descend method}
+\title{betahat_GD_Cpp}
 \arguments{
 \item{beta}{initial guess beta vector}
 
