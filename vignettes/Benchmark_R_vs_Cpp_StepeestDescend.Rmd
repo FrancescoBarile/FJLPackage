@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 library(cpp)
 library(dplyr)
 library(ggplot2)
+library(bench)
 # printable bench (for RMarkdown)
 print_bench <- function(bm) {
   bm %>% 
