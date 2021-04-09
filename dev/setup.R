@@ -52,6 +52,8 @@ usethis::use_package( "tibble" )
 usethis::use_package( "tictoc" )
 usethis::use_package( "RcppArmadillo" )
 usethis::use_package( "tidyr")
+usethis::use_package( "funprog")
+usethis::use_package( "parallel")
 
 # remeber to add it to ROXYGEN or NAMESPACE:
 #' @import dplyr  # ROXYGEN

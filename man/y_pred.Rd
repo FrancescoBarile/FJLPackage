@@ -4,7 +4,7 @@
 \alias{y_pred}
 \title{Title}
 \usage{
-y_pred(opt_obj)
+y_pred(formula, opt_obj, df)
 }
 \arguments{
 \item{opt_obj}{output of either the function lm_GD_optimizer or lm_SD_optimizer}

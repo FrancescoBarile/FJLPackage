@@ -14,7 +14,9 @@ Imports:
     dplyr,
     stringr,
     RcppArmadillo,
-    tidyr
+    tidyr,
+    funprog,
+    parallel
 LinkingTo: 
     Rcpp,
     RcppArmadillo
