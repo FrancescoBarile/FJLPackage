@@ -1,0 +1,40 @@
+---
+title: "Benchmark_cross_validation_parallel_and_sequential"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Benchmark_cross_validation_parallel_and_sequential}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width=4, 
+  fig.height=2,
+  fig.align = "center"
+)
+```
+
+```{r setup}
+library(cpp)
+library(bench)
+library(ggplot2)
+library(dplyr)
+library(doSNOW)
+
+print_bench <- function(bm) {
+  bm %>% 
+    mutate(expression = as.character(expression))
+}
+
+show_bm <- function(bm) {
+  print(print_bench(bm))
+  autoplot(bm)
+}
+
+bench::mark(
+  sequential=round(cpp::cvsequencial(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F),4),
+  parallel=round(cpp::cvparallel(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F),4)) %>% show_bm()
+```
