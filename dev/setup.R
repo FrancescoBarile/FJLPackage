@@ -89,7 +89,9 @@ usethis::use_test( "lm_GD_optimizer" )
 usethis::use_test( "lm_SD_optimizer" )
 usethis::use_test( "betahat_GD_Cpp" )
 usethis::use_test( "betahat_SD_Cpp" )
-
+usethis::use_test( "y_pred" )
+usethis::use_test( "cvparallel" )
+usethis::use_test( "cvsequential" )
 
 ## Vignette
 usethis::use_vignette("GradientDescend_R")
