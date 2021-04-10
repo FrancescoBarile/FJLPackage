@@ -25,24 +25,25 @@
 
 cvparallel<-function(k,formula, df, tolerance, maxit, stepsize, verbose){
   n=dim(df)[1]
+  set.seed(2021)
   subset=rep(sample(1:k,k),floor(n/k)) ## k-fold cross validation
   se=0
-
-### for 
- loop=function(index){
+  
+  ### for 
+  loop=function(index){
     train=lm_GD_optimizer(formula,df[c(1:n)[subset!=index],], tolerance, maxit, stepsize, verbose)
     ypred=y_pred(formula,train,df[c(1:n)[subset==index],])
     data=data_xy(formula,df[c(1:n)[subset==index],])
     se=sum((data$Y-ypred)^2)
     print(se)
-    }
-
-MSE=parallel::mclapply(1:k, loop, mc.cores = 1, mc.preschedule = T) 
-
-mse=Reduce("+", MSE)/n
-
-print(paste(k,'fold',':MSE is', mse))
-
+  }
+  
+  MSE=parallel::mclapply(1:k, loop, mc.cores = 4, mc.preschedule = T) 
+  
+  mse=Reduce("+", MSE)/n #### k,'fold',':MSE is', mse
+  
+  return(mse)
+  
 }
 
 
