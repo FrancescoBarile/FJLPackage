@@ -1,11 +1,16 @@
 #' Title
 #'
 #' @param opt_obj output of either the function lm_GD_optimizer or lm_SD_optimizer
+#' @param formula a formula specyfing the model
+#' @param df dataframe
 #'
 #' @return
 #' @export
 #' @import dplyr
 #' @import stringr
+#' @import rlang
+#' @import tibble
+#' 
   y_pred <- function(formula,opt_obj,df) {
     method = str_c(str_extract_all(opt_obj$method, "[A-Z]")[[1]][1], 
                    str_extract_all(opt_obj$method, "[A-Z]")[[1]][2])

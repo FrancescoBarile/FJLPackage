@@ -7,6 +7,7 @@
 #' @param maxit maximun number of iteration
 #' @param stepsize learning parameter 
 #' @param verbose should the function write messages during the computation?
+#' @param cores the number of cores to be used in the parallelization
 #'
 #' @export
 #' @returns 
@@ -16,6 +17,7 @@
 #' @import stringr
 #' @import doSNOW
 #' @import funprog
+#' @import parallel
 #' 
 
 ###### using parallel method 
@@ -23,7 +25,7 @@
 #### divide the data into k parts
 ### where k means k-fold cross validation
 
-cvparallel<-function(k,formula, df, tolerance, maxit, stepsize, verbose){
+cvparallel<-function(k,formula, df, tolerance, maxit, stepsize, verbose, cores){
   n=dim(df)[1]
   set.seed(2021)
   subset=rep(sample(1:k,k),floor(n/k)) ## k-fold cross validation
@@ -38,14 +40,14 @@ cvparallel<-function(k,formula, df, tolerance, maxit, stepsize, verbose){
     print(se)
   }
   
-  cluster <- makeCluster(1, type = "SOCK")
+  cluster <- parallel::makeCluster(cores, type = "SOCK")
   registerDoSNOW(cluster)
   
   MSE=snow::parLapply(cl = cluster,
                       x = 1:k,
                       fun = loop)
 
-  mse=Reduce("+", MSE)/n #### k,'fold',':MSE is', mse
+  mse=Reduce(`+`, MSE)/n #### k,'fold',':MSE is', mse
   
   return(mse)
   stopCluster(cluster)

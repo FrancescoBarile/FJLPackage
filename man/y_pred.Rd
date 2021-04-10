@@ -7,7 +7,11 @@
 y_pred(formula, opt_obj, df)
 }
 \arguments{
+\item{formula}{a formula specyfing the model}
+
 \item{opt_obj}{output of either the function lm_GD_optimizer or lm_SD_optimizer}
+
+\item{df}{dataframe}
 }
 \value{
 

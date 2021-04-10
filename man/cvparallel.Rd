@@ -5,7 +5,7 @@
 \title{Title
 ## using parallel method to calculate the k-fold crossing validation}
 \usage{
-cvparallel(k, formula, df, tolerance, maxit, stepsize, verbose)
+cvparallel(k, formula, df, tolerance, maxit, stepsize, verbose, cores)
 }
 \arguments{
 \item{k}{k-fold cross validation}
@@ -21,6 +21,8 @@ cvparallel(k, formula, df, tolerance, maxit, stepsize, verbose)
 \item{stepsize}{learning parameter}
 
 \item{verbose}{should the function write messages during the computation?}
+
+\item{cores}{the number of cores to be used in the parallelization}
 }
 \value{
 

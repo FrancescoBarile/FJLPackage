@@ -17,12 +17,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, warning=FALSE}
 library(cpp)
 library(bench)
 library(ggplot2)
 library(dplyr)
-library(doSNOW)
+library(parallel)
 
 print_bench <- function(bm) {
   bm %>% 
@@ -31,10 +31,10 @@ print_bench <- function(bm) {
 
 show_bm <- function(bm) {
   print(print_bench(bm))
-  autoplot(bm)
+  #autoplot(bm)
 }
 
 bench::mark(
-  sequential=round(cpp::cvsequencial(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F),4),
-  parallel=round(cpp::cvparallel(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F),4)) %>% show_bm()
+  sequential={round(cpp::cvsequencial(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F),4)},
+  parallel={round(cpp::cvparallel(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F,detectCores()-1 ),4)}) %>% show_bm()
 ```

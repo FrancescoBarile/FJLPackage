@@ -16,7 +16,9 @@ Imports:
     RcppArmadillo,
     tidyr,
     funprog,
-    parallel
+    doSNOW,
+    parallel,
+    rlang
 LinkingTo: 
     Rcpp,
     RcppArmadillo
