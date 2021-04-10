@@ -14,7 +14,7 @@
 #' @import tidyr
 #' @import tibble
 #' @import stringr
-#' @import parallel
+#' @import doSNOW
 #' @import funprog
 #' 
 
@@ -38,12 +38,17 @@ cvparallel<-function(k,formula, df, tolerance, maxit, stepsize, verbose){
     print(se)
   }
   
-  MSE=parallel::mclapply(1:k, loop, mc.cores = 4, mc.preschedule = T) 
+  cluster <- makeCluster(2, type = "SOCK")
+  registerDoSNOW(cluster)
   
+  MSE=snow::parLapply(cl = cluster,
+                      x = 1:k,
+                      fun = loop)
+
   mse=Reduce("+", MSE)/n #### k,'fold',':MSE is', mse
   
   return(mse)
+  stopCluster(cluster)
   
 }
-
 
