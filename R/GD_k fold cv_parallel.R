@@ -38,7 +38,7 @@ cvparallel<-function(k,formula, df, tolerance, maxit, stepsize, verbose){
     print(se)
   }
   
-  cluster <- makeCluster(2, type = "SOCK")
+  cluster <- makeCluster(1, type = "SOCK")
   registerDoSNOW(cluster)
   
   MSE=snow::parLapply(cl = cluster,
