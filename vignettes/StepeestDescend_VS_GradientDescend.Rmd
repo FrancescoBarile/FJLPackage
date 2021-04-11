@@ -19,100 +19,30 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
-library(cpp)
 library(dplyr)
-library(ggplot2)
-library(bench)
+
 #We want to compare the estimating capabilities of Steepest Descent and the Gradient Descent functions for estimating a Linear Regression models with real data
 #how they models fuel consumption through Gross horsepower (hp) and weight (wt)
 
 #Gradient Descent
-lm_opt_GD_mtcars = lm_GD_optimizer(mpg ~ hp + wt, mtcars, tolerance=1e-3, 
-                                   maxit=1000, stepsize=1e-2, verbose=T)
-lm_opt_GD_mtcars 
+lm_opt_GD = lm_GD_optimizer(Dep.var ~ . -1, mydataset_noconst, tolerance=1e-3, 
+                            maxit=1000, stepsize=1e-5, verbose=T)
+lm_opt_GD$beta_hat
 
 #Steepest Descent
-lm_opt_SD_mtcars = lm_SD_optimizer(mpg ~ hp + wt, mtcars, tolerance=1e-3, 
-                                   maxit=1000, verbose=T)
-lm_opt_SD_mtcars 
+lm_opt_SD = lm_SD_optimizer(Dep.var ~ . -1, mydataset_noconst, tolerance=1e-3, 
+                            maxit=1000, verbose=T)
+lm_opt_SD$beta_hat
 
+#COMPARISON
+#The two methods lead to consistent estimates of the beta vectors since their values are quite close to the true ones we used to simulate data
+#Nevertheless the Steepest Descend method converges in a fewer number of iterations than the Gradient Descend. We could expect this result from their mathematical formulation: the Steepest Descent descents in the direction of the largest directional derivative, Gradient Descent only cares about descent in the negative gradient direction.
 
-
-#we construct a function to show the result of the benchmark in a plot 
-print_bench <- function(bm) {
-  bm %>% 
-    mutate(expression = as.character(expression))
-}
-show_bm <- function(bm) {
-  print(print_bench(bm))
-  autoplot(bm)
-}
-
-#The aim of this Monte Carlo experiment is to show that the estimate of a
-#Classical Linear Regression model (i.e. when all the classical assumptions of
-#the linear regression model are satisfied) is consistent.
-
-#we set the sample size and the number of simulations for the MC 
-n = c(10, 25, 50, 100, 500, 1000)
-nsim = 1000
-
-#we set the initial values of the parameters
-beta0 = c(5,0.5, 0.2, 0.1)
-beta_hat=matrix(NA, nrow=length(beta0), ncol=nsim)
-
-#we set the tolerance level for stopping: that will be compared to the maximum difference 
-#between the observed parameters and the estimated ones
-tolerance=1e-8 
-
-#we set the maximum number of iteration, so if the criteria for the stop won't be satisfied,
-#the function will stop running anyway
-maxit = 1000      
-
-#we set the value of the learning parameter 
-stepsize=1e-5 
-
-#we construct the matrix for consistency analysis
-consistency_SD=matrix(NA, nrow=length(beta0), ncol=length(n), 
-                   dimnames = list(1:length(beta0), paste("n=", n, sep = "")))
-consistency_GD=matrix(NA, nrow=length(beta0), ncol=length(n), 
-                   dimnames = list(1:length(beta0), paste("n=", n, sep = "")))
-
-bench::mark(
-    SD_r_fun = {
-    set.seed(1)
-    std=5
-    beta = rnorm(length(beta0))
-    for(i in 1:length(n)){
-      for(j in 1:nsim){
-        x1 = rnorm(n[i]); x2 = rnorm(n[i]); x3 = rnorm(n[i])
-        x = cbind(rep(1,n[i]), x1, x2, x3)
-        y = as.numeric( x%*%beta0 + rnorm(n[i]), sd=std )
-        beta_hat[,j] = betahat_SD_R(beta, x, y, tolerance, maxit)
-      }
-      consistency_SD[,i] = rowMeans(beta_hat)
-    }
-    consistency_SD
-  },
-  SD_r_fun = {
-    set.seed(1)
-    std=5
-    beta = rnorm(length(beta0))
-    for(i in 1:length(n)){
-      for(j in 1:nsim){
-        x1 = rnorm(n[i]); x2 = rnorm(n[i]); x3 = rnorm(n[i])
-        x = cbind(rep(1,n[i]), x1, x2, x3)
-        y = as.numeric( x%*%beta0 + rnorm(n[i]), sd=std )
-        beta_hat[,j] = betahat_GD_R(beta, x, y, tolerance, maxit, stepsize)
-      }
-      consistency_GD[,i] = rowMeans(beta_hat)
-    }
-    consistency_GD
-  }
-) %>% show_bm()
-#we show the benchmark plot
-
-#we show the consistency results
-consistency_SD
-consistency_GD
+#Gradient Descent
+lm_opt_GD_1 = lm_GD_optimizer(Dep.var ~ . -1, mydataset_noconst, tolerance=1e-3, 
+                            maxit=1000, stepsize=1e-1, verbose=T)
+lm_opt_GD_1
+#It doesn't converge.
+#The successful convergence of the Gradient Descend method is quite sensible to even small variations of the learning rate parameter as show
 
 ```
