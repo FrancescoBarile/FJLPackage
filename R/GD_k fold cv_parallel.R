@@ -1,16 +1,18 @@
-#' Title
-#' ## using parallel method to calculate the k-fold crossing validation
-#' @param k k-fold cross validation
-#' @param formula a formula specifying the model
-#' @param df dataset containing the variables of interest
-#' @param tolerance tolerance level 
-#' @param maxit maximun number of iteration
-#' @param stepsize learning parameter 
-#' @param verbose should the function write messages during the computation?
+#' Parallel method to k-fold crossing validation
+#' 
+#' cvparallel is used to parallelize the k-fold cross validation
+#' 
+#' @param k [numeric] number of fold to create
+#' @param formula [character] a symbolic description of the model to be fitted (as lm), with -1 if the intercept is not included
+#' @param df [numeric] dataset containing the variables of interest
+#' @param tolerance [numeric] tolerance level, stopping criteria of the algorithm (error<tolerance: stop)
+#' @param maxit [numeric] maximum number of iterations, used if the stopping criteria is never matched
+#' @param stepsize [numeric] learning parameter, to update the parameters at each iteration 
+#' @param verbose [logical] indicating if the function write messages during the computation
 #' @param cores the number of cores to be used in the parallelization
 #'
 #' @export
-#' @returns 
+#' @returns [numeric] a vector of sample mean square errors calculated
 #' @import dplyr
 #' @import tidyr
 #' @import tibble
