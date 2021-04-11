@@ -2,28 +2,28 @@
 % Please edit documentation in R/GD_k fold cv_sequential.R
 \name{cvsequencial}
 \alias{cvsequencial}
-\title{Title cvsequencial}
+\title{Sequential method to k-fold crossing validation}
 \usage{
 cvsequencial(k, formula, df, tolerance, maxit, stepsize, verbose)
 }
 \arguments{
-\item{k}{k-fold cross validation}
+\item{k}{[numeric] number of fold to create}
 
-\item{formula}{a formula specifying the model}
+\item{formula}{[character] a symbolic description of the model to be fitted (as lm), with -1 if the intercept is not included}
 
-\item{df}{dataset containing the variables of interest}
+\item{df}{[numeric] dataset containing the variables of interest}
 
-\item{tolerance}{tolerance level}
+\item{tolerance}{[numeric] tolerance level, stopping criteria of the algorithm (error<tolerance: stop)}
 
-\item{maxit}{maximun number of iteration}
+\item{maxit}{[numeric] maximum number of iterations, used if the stopping criteria is never matched}
 
-\item{stepsize}{learning parameter}
+\item{stepsize}{[numeric] learning parameter, to update the parameters at each iteration}
 
-\item{verbose}{should the function write messages during the computation?}
+\item{verbose}{[logical] indicating if the function write messages during the computation}
 }
 \value{
-
+[numeric] a vector of sample mean square errors calculated
 }
 \description{
-## using sequential method to calculate the k-fold crossing validation
+cvsequencial is used to parallelize the k-fold cross validation
 }

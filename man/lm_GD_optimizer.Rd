@@ -2,26 +2,28 @@
 % Please edit documentation in R/lm_GD_optimizer.R
 \name{lm_GD_optimizer}
 \alias{lm_GD_optimizer}
-\title{Title}
+\title{Estimating Linear Models via Gradient Descent Optimization method (General)}
 \usage{
 lm_GD_optimizer(formula, df, tolerance, maxit, stepsize, verbose)
 }
 \arguments{
-\item{formula}{a formula specifying the model}
+\item{formula}{[character] a symbolic description of the model to be fitted (as lm), with -1 if the intercept is not included}
 
-\item{df}{dataset containing the variables of interest}
+\item{df}{[numeric] dataset containing the variables of interest}
 
-\item{tolerance}{tolerance level}
+\item{tolerance}{[numeric] tolerance level, stopping criteria of the algorithm (error<tolerance: stop)}
 
-\item{maxit}{maximun number of iteration}
+\item{maxit}{[numeric] maximum number of iterations, used if the stopping criteria is never matched}
 
-\item{stepsize}{learning parameter}
+\item{stepsize}{[numeric] learning parameter, to update the parameters at each iteration}
 
-\item{verbose}{should the function write messages during the computation?}
+\item{verbose}{[logical] indicating if the function write messages during the computation}
 }
 \value{
-
+[list] betas estimated, regressors, response variable, formula of the model, and name of the method implemented
 }
 \description{
-Title
+lm_GD_optimizer is used to estimates the parameters of a Linear Regression model via 
+an unconstrained optimization method called Gradient Descent Method. It is in the general version: 
+extract the variables of interest from the dataset and generates the initial values of the coefficients other than the betahat_GD_R functionalities
 }

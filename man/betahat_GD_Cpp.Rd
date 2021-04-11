@@ -4,18 +4,22 @@
 \alias{betahat_GD_Cpp}
 \title{betahat_GD_Cpp}
 \arguments{
-\item{beta}{initial guess beta vector}
+\item{beta}{[numeric] vector containing an initial guess for the beta vector}
 
-\item{X}{design matrix}
+\item{X}{[numeric] design matrix}
 
-\item{Y}{response variable vector}
+\item{Y}{[numeric] response variable vector}
 
-\item{tolerance}{level}
+\item{tolerance}{[numeric] tolerance level, stopping criteria of the algorithm 
+(error<tolerance: stop)}
 
-\item{maxit}{max num of iter}
+\item{maxit}{[numeric] maximum number of iterations, used if the stopping 
+criteria is never matched}
 
-\item{stepsize}{learning parameter}
+\item{stepsize}{[numeric] learning parameter, to update the parameters at 
+each iteration}
 }
 \description{
 Estimation Linear Regression model via Gradient Descend method
+Output: [list] Beta paraameters estimated
 }

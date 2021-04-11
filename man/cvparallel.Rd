@@ -9,17 +9,22 @@ cvparallel(k, formula, df, tolerance, maxit, stepsize, verbose, cores)
 \arguments{
 \item{k}{[numeric] number of fold to create}
 
-\item{formula}{[character] a symbolic description of the model to be fitted (as lm), with -1 if the intercept is not included}
+\item{formula}{[character] a symbolic description of the model to be fitted 
+(as lm), with -1 if the intercept is not included}
 
 \item{df}{[numeric] dataset containing the variables of interest}
 
-\item{tolerance}{[numeric] tolerance level, stopping criteria of the algorithm (error<tolerance: stop)}
+\item{tolerance}{[numeric] tolerance level, stopping criteria of the 
+algorithm (error<tolerance: stop)}
 
-\item{maxit}{[numeric] maximum number of iterations, used if the stopping criteria is never matched}
+\item{maxit}{[numeric] maximum number of iterations, used if the stopping 
+criteria is never matched}
 
-\item{stepsize}{[numeric] learning parameter, to update the parameters at each iteration}
+\item{stepsize}{[numeric] learning parameter, to update the parameters at 
+each iteration}
 
-\item{verbose}{[logical] indicating if the function write messages during the computation}
+\item{verbose}{[logical] indicating if the function write messages during 
+the computation}
 
 \item{cores}{the number of cores to be used in the parallelization}
 }

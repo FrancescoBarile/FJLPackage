@@ -7,16 +7,19 @@
 betahat_SD_Cpp(beta, X, Y, tolerance, maxit)
 }
 \arguments{
-\item{beta}{initial guess beta vector}
+\item{beta}{[numeric] vector containing an initial guess for the beta vector}
 
-\item{X}{design matrix}
+\item{X}{[numeric] design matrix}
 
-\item{Y}{response variable vector}
+\item{Y}{[numeric] response variable vector}
 
-\item{tolerance}{level}
+\item{tolerance}{[numeric] tolerance level, stopping criteria of the algorithm 
+(error<tolerance: stop)}
 
-\item{maxit}{max num of iter}
+\item{maxit}{[numeric] maximum number of iterations, used if the stopping 
+criteria is never matched}
 }
 \description{
 Estimation Linear Regression model via Steepest Descend method
+Output: [list] Beta paraameters estimated
 }

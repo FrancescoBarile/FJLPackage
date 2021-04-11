@@ -2,24 +2,24 @@
 % Please edit documentation in R/SteepestDescent_R.R
 \name{betahat_SD_R}
 \alias{betahat_SD_R}
-\title{Title}
+\title{Steepest Descent Optimization Method for Linear Models}
 \usage{
 betahat_SD_R(beta, x, y, tolerance, maxit)
 }
 \arguments{
-\item{beta}{numeric vector containing an initial guess for the beta vector}
+\item{beta}{[numeric] vector containing an initial guess for the beta vector}
 
-\item{x}{design matrix}
+\item{x}{[numeric] design matrix}
 
-\item{y}{response variable vector}
+\item{y}{[numeric] response variable vector}
 
-\item{tolerance}{tolerance level}
+\item{tolerance}{[numeric] tolerance level, stopping criteria of the algorithm (error<tolerance: stop)}
 
-\item{maxit}{maximun number of iteration}
+\item{maxit}{[numeric] maximum number of iterations, used if the stopping criteria is never matched}
 }
 \value{
-
+[numeric] vector of beta parameters estimated
 }
 \description{
-Title
+betahat_SD_R is used to estimates the beta vector of a linear Regression model via Steepest Descent
 }

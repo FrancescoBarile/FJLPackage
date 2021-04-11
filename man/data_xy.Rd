@@ -2,18 +2,18 @@
 % Please edit documentation in R/data_xy.R
 \name{data_xy}
 \alias{data_xy}
-\title{Title}
+\title{Dataset in the form needed for estimating Linear Models}
 \usage{
 data_xy(formula, df)
 }
 \arguments{
-\item{formula}{a formula specifying the model}
+\item{formula}{[character] a formula specifying the model}
 
-\item{df}{dataset containing the variables of interest}
+\item{df}{[numeric] dataset containing the variables of interest}
 }
 \value{
-
+[list] matrix of regressors and a vector of the response variable
 }
 \description{
-Title
+Dataset in the form needed for estimating Linear Models
 }

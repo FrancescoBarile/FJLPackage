@@ -2,20 +2,20 @@
 % Please edit documentation in R/Prediction.R
 \name{y_pred}
 \alias{y_pred}
-\title{Title}
+\title{Function for predicting values}
 \usage{
 y_pred(formula, opt_obj, df)
 }
 \arguments{
-\item{formula}{a formula specyfing the model}
+\item{formula}{[character] a symbolic description of the model to be fitted (as lm), with -1 if the intercept is not included}
 
-\item{opt_obj}{output of either the function lm_GD_optimizer or lm_SD_optimizer}
+\item{opt_obj}{[list] output of either the function lm_GD_optimizer or lm_SD_optimizer}
 
-\item{df}{dataframe}
+\item{df}{[numeric] dataset containing the variables of interest}
 }
 \value{
-
+[numeric] vector of the predicted values of the response variable
 }
 \description{
-Title
+Function that uses the model parameters estimated and predict y starting from x
 }

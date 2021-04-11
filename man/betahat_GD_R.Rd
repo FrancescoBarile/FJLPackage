@@ -2,27 +2,27 @@
 % Please edit documentation in R/GradientDescent_R.R
 \name{betahat_GD_R}
 \alias{betahat_GD_R}
-\title{betahat_GD_R}
+\title{Estimation of Linear Regression model via Gradient Descent method}
 \usage{
 betahat_GD_R(beta, x, y, tolerance, maxit, stepsize)
 }
 \arguments{
-\item{beta}{numeric vector containing an initial guess for the beta vector}
+\item{beta}{[numeric] vector containing an initial guess for the beta vector}
 
-\item{x}{design matrix}
+\item{x}{[numeric] design matrix}
 
-\item{y}{response variable vector}
+\item{y}{[numeric] response variable vector}
 
-\item{tolerance}{tolerance level}
+\item{tolerance}{[numeric] tolerance level, stopping criteria of the algorithm (error<tolerance: stop)}
 
-\item{maxit}{maximun number of iteration}
+\item{maxit}{[numeric] maximum number of iterations, used if the stopping criteria is never matched}
 
-\item{stepsize}{learning parameter}
+\item{stepsize}{[numeric] learning parameter, to update the parameters at each iteration}
 }
 \value{
-
+[numeric] vector of beta parameters estimated
 }
 \description{
-This function estimates the beta vector of a linear Regression model via 
-gradient descend method
+betahat_GD_R is used to estimates the beta vector of a linear Regression model via 
+an unconstrained optimization method called Gradient Descent Method
 }

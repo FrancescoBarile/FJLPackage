@@ -9,6 +9,6 @@ mydataset contains three regressors and one simulated response variable
 with known parameter through a linear regression model with intercept
 }
 \author{
-Francesco Barile \email{f.barile2@campus.unimb.it}
+Francesco Barile, Jiefeng Bi, Ludovica De Carolis \email{f.barile2@campus.unimb.it, j.bi@campus.unimb.it , l.decarolis@campus.unimb.it}
 }
 \keyword{data}

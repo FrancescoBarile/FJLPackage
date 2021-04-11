@@ -2,7 +2,7 @@
 % Please edit documentation in R/lm_specification.R
 \name{lm.model_spec}
 \alias{lm.model_spec}
-\title{Title}
+\title{Model Specification for LM}
 \usage{
 lm.model_spec(formula, df)
 }
@@ -12,8 +12,8 @@ lm.model_spec(formula, df)
 \item{df}{dataset containing the variables of interest}
 }
 \value{
-
+[list] of variable names and intercept (if included)
 }
 \description{
-Title
+lm.model_spec is used to obtain the model specification as require for estimating a linear regression model
 }

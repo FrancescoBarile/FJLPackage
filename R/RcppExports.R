@@ -2,14 +2,18 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #' Estimation Linear Regression model via Gradient Descend method
+#' Output: [list] Beta paraameters estimated
 #' @title betahat_GD_Cpp
 #' @name betahat_GD_Cpp
-#' @param beta initial guess beta vector
-#' @param X design matrix
-#' @param Y response variable vector
-#' @param tolerance level
-#' @param maxit max num of iter
-#' @param stepsize learning parameter
+#' @param beta [numeric] vector containing an initial guess for the beta vector
+#' @param X [numeric] design matrix
+#' @param Y [numeric] response variable vector
+#' @param tolerance [numeric] tolerance level, stopping criteria of the algorithm 
+#'(error<tolerance: stop)
+#' @param maxit [numeric] maximum number of iterations, used if the stopping 
+#'criteria is never matched 
+#' @param stepsize [numeric] learning parameter, to update the parameters at 
+#'each iteration 
 #' @export
 NULL
 
@@ -18,13 +22,16 @@ betahat_GD_Cpp <- function(beta, X, Y, tolerance, maxit, stepsize) {
 }
 
 #' Estimation Linear Regression model via Steepest Descend method
+#' Output: [list] Beta paraameters estimated
 #' @title betahat_SD_Cpp
 #' @name betahat_SD_Cpp
-#' @param beta initial guess beta vector
-#' @param X design matrix
-#' @param Y response variable vector
-#' @param tolerance level
-#' @param maxit max num of iter
+#' @param beta [numeric] vector containing an initial guess for the beta vector
+#' @param X [numeric] design matrix
+#' @param Y [numeric] response variable vector
+#' @param tolerance [numeric] tolerance level, stopping criteria of the algorithm 
+#'(error<tolerance: stop)
+#' @param maxit [numeric] maximum number of iterations, used if the stopping 
+#'criteria is never matched 
 #' @export
 #' 
 betahat_SD_Cpp <- function(beta, X, Y, tolerance, maxit) {

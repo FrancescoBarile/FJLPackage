@@ -21,11 +21,11 @@ library(parallel)
 
 #we want to see how the sequential cross validation works on the Gradient Descent Optimization Method for Linear Models 
 #varying the number of groups created (in the case of 1000 folds and 100 folds)
-cpp::cvparallel(1000,Dep.var~.,mydataset,1e-5,1000,1e-5,F, FdetectCores()-1)
-cpp::cvparallel(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F, FdetectCores()-1)
+cpp::cvparallel(1000,Dep.var~.,mydataset,1e-5,1000,1e-5,F, detectCores()-1)
+cpp::cvparallel(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F, detectCores()-1)
 
 #we want to see how the sequential cross validation works on the Gradient Descent Optimization Method for Linear Models 
 #varying the stopping criteria (in the case of tolerance level of 1e-3 and 1e-6)
-cpp::cvparallel(100,Dep.var~.,mydataset,1e-3,1000,1e-3,F, FdetectCores()-1)
-cpp::cvparallel(100,Dep.var~.,mydataset,1e-6,1000,1e-6,FdetectCores()-1)
+cpp::cvparallel(100,Dep.var~.,mydataset,1e-3,1000,1e-3,F, detectCores()-1)
+cpp::cvparallel(100,Dep.var~.,mydataset,1e-6,1000,1e-6,F, detectCores()-1)
 ```
