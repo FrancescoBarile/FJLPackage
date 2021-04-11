@@ -1,12 +1,16 @@
-#' Title
+#' Estimating Linear Models via Steepest Descent Optimization method (General)
+#' 
+#' lm_SD_optimizer is used to estimates the parameters of a Linear Regression model via 
+#' an unconstrained optimization method called Steepest Descent Method. It is in the general version: 
+#' extract the variables of interest from the dataset and generates the initial values of the coefficients other than the betahat_SD_R functionalities
+#' 
+#' @param formula [character] a symbolic description of the model to be fitted (as lm), with -1 if the intercept is not included
+#' @param df [numeric] dataset containing the variables of interest
+#' @param tolerance [numeric] tolerance level, stopping criteria of the algorithm (error<tolerance: stop)
+#' @param maxit [numeric] maximum number of iterations, used if the stopping criteria is never matched
+#' @param verbose [logical] indicating if the function write messages during the computation
 #'
-#' @param formula a formula specifying the model
-#' @param df dataset containing the variables of interest
-#' @param tolerance tolerance level
-#' @param maxit maximun number of iteration
-#' @param verbose should the function write messages during the computation?
-#'
-#' @return
+#' @return [list] betas estimated, regressors, response variable, formula of the model, and name of the method implemented  
 #' @export
 
 lm_SD_optimizer<-function(formula, df, tolerance, maxit, verbose) {

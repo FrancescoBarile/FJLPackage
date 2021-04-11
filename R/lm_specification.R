@@ -1,9 +1,11 @@
-#' Title
+#' Model Specification for LM
+#'
+#' lm.model_spec is used to obtain the model specification as require for estimating a linear regression model
 #'
 #' @param formula a formula specifying the model
 #' @param df dataset containing the variables of interest
 #'
-#' @return
+#' @return [list] of variable names and intercept (if included)
 #' @import dplyr
 #' @import stringr
 #' @import tibble

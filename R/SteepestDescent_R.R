@@ -1,12 +1,14 @@
-#' Title
+#' Steepest Descent Optimization Method for Linear Models
 #'
-#' @param beta numeric vector containing an initial guess for the beta vector
-#' @param x design matrix
-#' @param y response variable vector
-#' @param tolerance tolerance level
-#' @param maxit maximun number of iteration 
+#' betahat_SD_R is used to estimates the beta vector of a linear Regression model via Steepest Descent
 #'
-#' @return
+#' @param beta [numeric] vector containing an initial guess for the beta vector
+#' @param x [numeric] design matrix
+#' @param y [numeric] response variable vector
+#' @param tolerance [numeric] tolerance level, stopping criteria of the algorithm (error<tolerance: stop)
+#' @param maxit [numeric] maximum number of iterations, used if the stopping criteria is never matched 
+#'
+#' @return [numeric] vector of beta parameters estimated
 #' @export
 
 betahat_SD_R <- function(beta, x, y, tolerance, maxit){

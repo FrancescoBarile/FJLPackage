@@ -1,9 +1,9 @@
-#' Title
+#' Dataset in the form needed for estimating Linear Models 
 #'
-#' @param formula a formula specifying the model
-#' @param df dataset containing the variables of interest
+#' @param formula [character] a formula specifying the model
+#' @param df [numeric] dataset containing the variables of interest
 #'
-#' @return
+#' @return [list] matrix of regressors and a vector of the response variable
 #' @import dplyr
 #' @import tidyr
 #' @import tibble

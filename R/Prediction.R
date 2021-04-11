@@ -1,10 +1,12 @@
-#' Title
+#' Function for predicting values
+#' 
+#' Function that uses the model parameters estimated and predict y starting from x
+#' 
+#' @param opt_obj [list] output of either the function lm_GD_optimizer or lm_SD_optimizer
+#' @param formula [character] a symbolic description of the model to be fitted (as lm), with -1 if the intercept is not included
+#' @param df [numeric] dataset containing the variables of interest
 #'
-#' @param opt_obj output of either the function lm_GD_optimizer or lm_SD_optimizer
-#' @param formula a formula specyfing the model
-#' @param df dataframe
-#'
-#' @return
+#' @return [numeric] vector of the predicted values of the response variable
 #' @export
 #' @import dplyr
 #' @import stringr

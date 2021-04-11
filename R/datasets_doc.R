@@ -4,7 +4,7 @@
 #' @title mydataset
 #' @name mydataset
 #' @docType tibble
-#' @author Francesco Barile \email{f.barile2@@campus.unimb.it}
+#' @author Francesco Barile, Jiefeng Bi, Ludovica De Carolis \email{f.barile2@@campus.unimb.it, j.bi@@campus.unimb.it , l.decarolis@@campus.unimb.it}
 #' @keywords data
 NULL
 
@@ -14,6 +14,6 @@ NULL
 #' @title mydataset_noconst
 #' @name mydataset_noconst
 #' @docType tibble
-#' @author Francesco Barile \email{f.barile2@@campus.unimb.it}
+#' @author Francesco Barile, Jiefeng Bi, Ludovica De Carolis \email{f.barile2@@campus.unimb.it , j.bi@@campus.unimb.it , l.decarolis@@campus.unimb.it}
 #' @keywords data
 NULL
