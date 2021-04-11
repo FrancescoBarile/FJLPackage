@@ -16,16 +16,20 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
+#we estimate linear regression model via Gradient Descent using our generated dataset, to see if the function works well
 lm_opt_GD = lm_GD_optimizer(Dep.var ~ . -1, mydataset_noconst, tolerance=1e-3, 
                             maxit=1000, stepsize=1e-5, verbose=T)
 lm_opt_GD
 
+#we check estimation capability of lm_GD_optimizer via a real data example: describing fuel consumption with Gross horsepower (hp) 
+#and weight (wt) with an higher learning parameter and the same tolerance level
 lm_opt_GD_mtcars = lm_GD_optimizer(mpg ~ hp + wt, mtcars, tolerance=1e-3, 
                                    maxit=1000, stepsize=1e-2, verbose=T)
 lm_opt_GD_mtcars 
 
+#we check estimation capability of lm_GD_optimizer via a real data example: describing fuel consumption with Gross horsepower (hp) and weight (wt), 
+#with a lower learning parameter and the same tolerance level
 lm_opt_GD_mtcars = lm_GD_optimizer(mpg ~ hp + wt, mtcars, tolerance=1e-3,
                                    maxit=1000, stepsize=1e-6, verbose=T)
 lm_opt_GD_mtcars 
-
 ```

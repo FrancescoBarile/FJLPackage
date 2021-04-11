@@ -1,8 +1,8 @@
 ---
-title: "GradientDescend_R"
+title: "SteepestDescend_R"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{GradientDescend_R}
+  %\VignetteIndexEntry{SteepestDescend_R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -17,9 +17,9 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(cpp)
 
-#we estimate linear regression model via Gradient Descent in its simple version
-#we use our dataset, without the constant and then transform regressors and response variables 
-#in matrices in order to have in the form for being input for the function
+#we estimate linear regression model via Steepest Descent in its simple version, in R
+#we use our dataset, without the constant and then transform regressors and response 
+#variables in matrices in order to have in the form for being input for the function
 XY=data_xy(Dep.var ~ . -1, mydataset_noconst)
 Y = as.matrix(XY$Y)
 X = as.matrix(XY$X)
@@ -34,12 +34,10 @@ tolerance=1e-3
 #we set the maximum number of iteration, so if the criteria for the stop won't be satisfied,
 #the function will stop running anyway
 maxit=1000      
-#we set the value of the learning parameter to 0.00001
-stepsize=1e-5 
 
 #we can put these values as input in order to estimate the parameters for the linear model 
-#with the Gradient Descent method, to check how it works
-GD_R = betahat_GD_R(beta0, X, Y, tolerance, maxit, stepsize)
+#with the Steepest Descent method, to check how it works
+GD_R = betahat_SD_R(beta0, X, Y, tolerance, maxit)
 
 GD_R
 ```

@@ -16,16 +16,27 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cpp)
+#we are going to estimate linear regression model via Steepest Descent in its simple version, 
+#constructed in C++
+#we use our dataset, without the constant and then transform regressors and response variables 
+#in matrices in order to have in the form for being input for the function
 XY=data_xy(Dep.var ~ . -1, mydataset_noconst)
 Y = as.matrix(XY$Y)
 X = as.matrix(XY$X)
 
+#we generate the initial values of the coefficients from a standard normal
 set.seed(1)
 beta0 = rnorm(ncol(X))
 
-tolerance=1e-3  # tolerance
-maxit=1000      # max iteration, not to run forever
+#we set the tolerance level for stopping: that will be compared to the maximum difference 
+#between the observed parameters and the estimated ones
+tolerance=1e-3
+#we set the maximum number of iteration, so if the criteria for the stop won't be satisfied,
+#the function will stop running anyway
+maxit=1000     
 
+#we can put these values as input in order to estimate the parameters for the linear model 
+#with the Steepest Descent method, to check how it works
 SD_Cpp = betahat_SD_Cpp(beta0, X, Y, tolerance, maxit)
 SD_Cpp
 ```

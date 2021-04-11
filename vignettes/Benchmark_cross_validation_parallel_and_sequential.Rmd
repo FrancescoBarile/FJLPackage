@@ -24,6 +24,10 @@ library(ggplot2)
 library(dplyr)
 library(parallel)
 
+#The aim is to compare, in terms of time of computation, the sequential and the parallel version of the 
+#function for k-fold cross validation
+
+#we construct a function to show the result of the benchmark in a plot 
 print_bench <- function(bm) {
   bm %>% 
     mutate(expression = as.character(expression))
@@ -34,7 +38,9 @@ show_bm <- function(bm) {
   #autoplot(bm)
 }
 
+#we show the benchmark plot
 bench::mark(
   sequential={round(cpp::cvsequencial(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F),4)},
   parallel={round(cpp::cvparallel(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F,detectCores()-1 ),4)}) %>% show_bm()
+#we see that the parallel version is more efficient
 ```

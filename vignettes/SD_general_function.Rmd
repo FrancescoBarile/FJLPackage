@@ -1,0 +1,29 @@
+---
+title: "SD_general_function"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{SD_general_function}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(cpp)
+#we estimate linear regression model via Steepest Descent using our generated dataset, to see if the function works well
+lm_opt_SD = lm_SD_optimizer(Dep.var ~ . -1, mydataset_noconst, tolerance=1e-3, 
+                            maxit=1000, verbose=T)
+lm_opt_SD
+
+#we check estimation capability of lm_SD_optimizer via a real data example: describing fuel consumption with Gross horsepower (hp) 
+#and weight (wt) with the same tolerance level
+lm_opt_SD_mtcars = lm_SD_optimizer(mpg ~ hp + wt, mtcars, tolerance=1e-3, 
+                                   maxit=1000, verbose=T)
+lm_opt_SD_mtcars 
+```

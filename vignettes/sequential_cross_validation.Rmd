@@ -1,0 +1,30 @@
+---
+title: "sequential_cross_validation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{sequential_cross_validation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(cpp)
+library(dplyr)
+
+#we want to see how the sequential cross validation works on the Gradient Descent Optimization Method for Linear Models 
+#varying the number of groups created (in the case of 1000 folds and 100 folds)
+cpp::cvsequencial(1000,Dep.var~.,mydataset,1e-5,1000,1e-5,F)
+cpp::cvsequencial(100,Dep.var~.,mydataset,1e-5,1000,1e-5,F)
+
+#we want to see how the sequential cross validation works on the Gradient Descent Optimization Method for Linear Models 
+#varying the stopping criteria (in the case of tolerance level of 1e-3 and 1e-6)
+cpp::cvsequencial(100,Dep.var~.,mydataset,1e-3,1000,1e-3,F)
+cpp::cvsequencial(100,Dep.var~.,mydataset,1e-6,1000,1e-6,F)
+```

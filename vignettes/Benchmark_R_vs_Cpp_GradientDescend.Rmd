@@ -1,8 +1,8 @@
 ---
-title: "Benchmark_R_vs_Cpp_StepeestDescend"
+title: "Benchmark_R_vs_Cpp_GradientDescend"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Benchmark_R_vs_Cpp_StepeestDescend}
+  %\VignetteIndexEntry{Benchmark_R_vs_Cpp_GradientDescend}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -23,7 +23,7 @@ library(dplyr)
 library(ggplot2)
 library(bench)
 
-#we construct a function to show the result of the benchmark in a plot 
+#we constract a function to show the result of the benchmark in a plot 
 print_bench <- function(bm) {
   bm %>% 
     mutate(expression = as.character(expression))
@@ -36,7 +36,7 @@ show_bm <- function(bm) {
 #The aim of this Monte Carlo experiment is to show that the estimate of a
 #Classical Linear Regression model (i.e. when all the classical assumptions of
 #the linear regression model are satisfied) is consistent.
-#To run the experiment we benchmark the Steepest descent R function with its C++ version.
+#To run the experiment we benchmark the Gradient Descent R function with its C++ version.
 
 #we set the sample size and the number of simulations for the MC 
 n = c(10, 25, 50, 100, 500, 1000)
@@ -48,11 +48,14 @@ beta_hat=matrix(NA, nrow=length(beta0), ncol=nsim)
 
 #we set the tolerance level for stopping: that will be compared to the maximum difference 
 #between the observed parameters and the estimated ones
-tolerance=1e-8 
+tolerance=1e-8  
 
 #we set the maximum number of iteration, so if the criteria for the stop won't be satisfied,
 #the function will stop running anyway
 maxit = 1000      
+
+#we set the value of the learning parameter 
+stepsize=1e-5 
 
 #we construct the matrix for consistency analysis
 consistency_r=matrix(NA, nrow=length(beta0), ncol=length(n), 
@@ -60,8 +63,8 @@ consistency_r=matrix(NA, nrow=length(beta0), ncol=length(n),
 consistency_cpp=matrix(NA, nrow=length(beta0), ncol=length(n), 
                    dimnames = list(1:length(beta0), paste("n=", n, sep = "")))
 
-#The aim is to compare the function for estimating a linear model via the Steepest Descent optimization 
-#method, constructed in R and the one in C++ (in the simple formulation) in terms of time of computation
+#we compare the function for estimating a linear model via the Gradient Descent optimization method,
+#constructed in R and the one in C++ (in the simple formulation) in terms of time of computation
 bench::mark(
   SD_r_fun = {
     set.seed(1)
@@ -72,7 +75,7 @@ bench::mark(
         x1 = rnorm(n[i]); x2 = rnorm(n[i]); x3 = rnorm(n[i])
         x = cbind(rep(1,n[i]), x1, x2, x3)
         y = as.numeric( x%*%beta0 + rnorm(n[i]), sd=std )
-        beta_hat[,j] = betahat_SD_R(beta, x, y, tolerance, maxit)
+        beta_hat[,j] = betahat_GD_R(beta, x, y, tolerance, maxit, stepsize)
       }
       consistency_r[,i] = rowMeans(beta_hat)
     }
@@ -87,7 +90,7 @@ bench::mark(
         x1 = rnorm(n[i]); x2 = rnorm(n[i]); x3 = rnorm(n[i])
         x = cbind(rep(1,n[i]), x1, x2, x3)
         y = as.numeric( x%*%beta0 + rnorm(n[i]), sd=std )
-        beta_hat[,j] = betahat_SD_Cpp(beta, x, y, tolerance, maxit)
+        beta_hat[,j] = betahat_GD_Cpp(beta, x, y, tolerance, maxit, stepsize)
       }
       consistency_cpp[,i] = rowMeans(beta_hat)
     }
@@ -95,7 +98,7 @@ bench::mark(
   }
 ) %>% show_bm()
 #we show the benchmark plot
-#the C++ function shows to be remarkable faster than the R version, as expected since it is in a
+#the C++ function shows to be remarkable faster than the R version, as expected since it is in a 
 #low-level language 
 
 #we show the consistency results
