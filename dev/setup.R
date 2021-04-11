@@ -100,6 +100,7 @@ usethis::use_vignette("GradientDescend_R")
 usethis::use_vignette("GradientDescend_Cpp")
 usethis::use_vignette("StepeestDescend_Cpp")
 usethis::use_vignette("GD_general_function")
+usethis::use_vignette("StepeestDescend_VS_GradientDescend")
 usethis::use_vignette("Benchmark_R_vs_Cpp_StepeestDescend")
 usethis::use_vignette("Benchmark_cross_validation_parallel_and_sequential")
 
